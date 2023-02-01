@@ -1,5 +1,5 @@
 # AI Image Generator using OPENAI
-
+    Build and deploy application generating image via OPENAI and share it with community.
 ## DESCRIPTION
     The application was created using MERN stack & Tailwind CSS
     
