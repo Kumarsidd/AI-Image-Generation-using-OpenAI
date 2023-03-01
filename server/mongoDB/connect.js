@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 
 dotenv.config();
+//not
 
 const connectDB = (url) => {
   mongoose.set("strictQuery", true);
