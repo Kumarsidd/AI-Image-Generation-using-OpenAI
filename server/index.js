@@ -40,7 +40,7 @@ const startServer = () => {
   try {
     connectDB(process.env.MONGODB_URL);
     app.listen(6060, () => {
-      console.log("Listening to 5050");
+      console.log("Listening to 6060");
     });
   } catch (err) {
     console.log(err);
