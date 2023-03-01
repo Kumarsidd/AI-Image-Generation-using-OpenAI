@@ -24,7 +24,7 @@ const Home = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://images-openai.vercel.app/v1/post",
+          "https://client-openai-git-master-kumarsidd.vercel.app/v1/post",
           {
             method: "GET",
             headers: {
