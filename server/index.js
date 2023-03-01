@@ -1,11 +1,12 @@
 import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
 import connectDB from "./mongoDB/connect.js";
 import postRoutes from "./routes/postRoutes.js";
 import dalleRoutes from "./routes/dalleRoutes.js";
-
 dotenv.config();
 const app = express();
 
@@ -19,11 +20,27 @@ app.get("/", async (req, res) => {
   res.send("HEllo from dall-e");
 });
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./client/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
+
 const startServer = () => {
   try {
     connectDB(process.env.MONGODB_URL);
-    app.listen(8080, () => {
-      console.log("Listening to 8080");
+    app.listen(6060, () => {
+      console.log("Listening to 5050");
     });
   } catch (err) {
     console.log(err);
